@@ -2,17 +2,24 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import PropTypes from 'prop-types';
+import ErrorBoundary from './ErrorBoundary.js'
 
 
 class Button extends React.Component {
-  state = { color: 'blue' }
+  state = { color: 'blue', counter: 0 }
 
   static efaultProps = {
     label: 'OK'
   }
 
+  handleClick = () => {
+    this.setState({ counter: this.state.counter + 1 });
+  }
+
   render() {
-    return <button>{this.props.label}</button>
+    if (this.state.counter === 5) {
+      throw new Error('Za duża liczba');}
+    return <button onClick={this.handleClick}>{this.props.label}{' '}{this.state.counter}</button>
   }
 }
 
@@ -47,19 +54,21 @@ function App() {
 
   return (
     <div className="App">
-      <div>Hello tests !!!</div>
-      <Button label='Click me' />
+      <ErrorBoundary>
+        <div>Hello tests !!!</div>
+        <Button label='Click me' />
 
-      {users.map((user) =>
-        <User key={user.login.uuid}
+        {users.map((user) =>
+          <User key={user.login.uuid}
 
-          firstName={user.name.first}
-          lastName={user.name.last}
-          email={user.email}
-          phone={user.phone}
+            firstName={user.name.first}
+            lastName={user.name.last}
+            email={user.email}
+            phone={user.phone}
 
-        />
-      )}
+          />
+        )}
+      </ErrorBoundary>
     </div>
   );
 }
