@@ -25,10 +25,13 @@ function User({ firstName, lastName, email, phone }) {
   )
 }
 User.propTypes = {
-  firstName: PropTypes.string.isRequired,
-  lastName: PropTypes.string.isRequired,
-  email: PropTypes.string,
-  phone: PropTypes.string
+  user: PropTypes.shape({
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    email: PropTypes.string,
+    phone: PropTypes.string
+  })
+
 }
 
 
@@ -49,10 +52,12 @@ function App() {
 
       {users.map((user) =>
         <User key={user.login.uuid}
+
           firstName={user.name.first}
           lastName={user.name.last}
           email={user.email}
           phone={user.phone}
+
         />
       )}
     </div>
