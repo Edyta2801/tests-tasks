@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 class Button extends React.Component {
   state = { color: 'blue' }
@@ -16,12 +16,20 @@ class Button extends React.Component {
 
 
 function App() {
+  const [users, setUsers]=useState([]);
+
+  useEffect(()=>{
+    axios
+      .get("https://randomuser.me/api/?results=10")
+      .then((response) => setUsers(response.data.results));
+  }, []);
+
   return (
     <div className="App">
       <div>Hello tests !!!</div>
       <Button label='Click me' />
     </div>
   );
-}
+} 
 
 export default App;
