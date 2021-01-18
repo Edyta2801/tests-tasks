@@ -3,25 +3,9 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import PropTypes from 'prop-types';
 import ErrorBoundary from './ErrorBoundary.js'
+import Button from './components/Button';
 
 
-class Button extends React.Component {
-  state = { color: 'blue', counter: 0 }
-
-  static efaultProps = {
-    label: 'OK'
-  }
-
-  handleClick = () => {
-    this.setState({ counter: this.state.counter + 1 });
-  }
-
-  render() {
-    if (this.state.counter === 5) {
-      throw new Error('Za duża liczba');}
-    return <button onClick={this.handleClick}>{this.props.label}{' '}{this.state.counter}</button>
-  }
-}
 
 function User({ firstName, lastName, email, phone }) {
   return (
