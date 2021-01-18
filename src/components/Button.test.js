@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 
 it('renders ok', () => {
     const tree = renderer
-        .create(<Button label='Click me' />)
+        .create(<Button label='Click me !!!' />)
         .toJSON();
     expect(tree).toMatchSnapshot();
 });

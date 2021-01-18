@@ -4,7 +4,7 @@ exports[`renders ok 1`] = `
 <button
   onClick={[Function]}
 >
-  Click me
+  Click me !!!
    
   0
 </button>
