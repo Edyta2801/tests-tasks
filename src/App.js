@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
+import PropTypes from 'prop-types';
 
 
 class Button extends React.Component {
@@ -22,6 +23,12 @@ function User({ firstName, lastName, email, phone }) {
       <p>{email} {phone}</p>
     </div>
   )
+}
+User.propTypes = {
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  email: PropTypes.string,
+  phone: PropTypes.string
 }
 
 
