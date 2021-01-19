@@ -15,6 +15,8 @@ export default class Button extends React.Component {
         if (this.state.counter === 5) {
             throw new Error('Za duża liczba');
         }
-        return <button onClick={this.handleClick}>{this.props.label}{' '}{this.state.counter}</button>
+        return <button onClick={this.handleClick}>{this.props.label}
+            <span> {this.state.counter}</span>
+        </button>;
     }
 }

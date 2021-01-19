@@ -27,7 +27,8 @@ User.propTypes = {
 
 
 function App() {
-  const [users, setUsers] = useState([]);
+  const
+   [users, setUsers] = useState([]);
 
   useEffect(() => {
     axios
@@ -40,9 +41,11 @@ function App() {
     <div className="App">
       <ErrorBoundary>
         <div>Hello tests !!!</div>
-        <Button label='Click me' />
+        <Button 
+        label='Click me'
+        />
 
-        {users.map((user) =>
+        {/* {users.map((user) =>
           <User key={user.login.uuid}
 
             firstName={user.name.first}
@@ -51,7 +54,7 @@ function App() {
             phone={user.phone}
 
           />
-        )}
+        )} */}
       </ErrorBoundary>
     </div>
   );
